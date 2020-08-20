@@ -3,6 +3,7 @@
 ///By using MST,we can find minimum cost and replacable edge also.
 /// But multiple edge between same u and v can be treated as critical one .
 /// That's why we use additional extra map to mark pair.
+/// Very much fantastic problem.
 
 
 #include<bits/stdc++.h>
@@ -181,11 +182,16 @@ void apu_finding(int u)
                    extra[make_pair(a,b)]=2;
                    extra[make_pair(b,a)]=2;
                }
+               /// making graph of containing all edges of different mst 
                adj[a].push_back(make_pair(b,id));
                adj[b].push_back(make_pair(a,id));
            }
        }
        /// merge all edges with the same weight.
+       /// we want to make a graph with all mst edges.
+       /// that's why at the end of the process of particular weight 
+       /// we will make union set of those.
+       /// if we make union in upper loop ,then we would get only mst edges.
        for(int k=0;k<graph_edge[w].size();k++)
        {
            u=graph_edge[w][k].u;
@@ -203,7 +209,7 @@ void apu_finding(int u)
 
    for(int i=0;i<E;i++)
    {
-      cout<<ans[edges[i].id]<<endl;
+      cout<<ans[edges[i].id]<<'\n';
    }
  return 0;
 }
