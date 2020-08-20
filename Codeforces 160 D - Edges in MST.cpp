@@ -1,6 +1,8 @@
 ///Tarjan Algorithm + MST
 ///By using Tarjan,we can find critical bridges which will be found in every MST.
 ///By using MST,we can find minimum cost and replacable edge also.
+/// But multiple edge between same u and v can be treated as critical one .
+/// That's why we use additional extra map to mark pair.
 
 
 #include<bits/stdc++.h>
